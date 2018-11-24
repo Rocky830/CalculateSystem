@@ -8,3 +8,13 @@ D:\GitHub\CalculateSystem\CalculateSystem\obj\Debug\CalculateSystem.csproj.CoreC
 D:\GitHub\CalculateSystem\CalculateSystem\obj\Debug\CalculateSystem.exe
 D:\GitHub\CalculateSystem\CalculateSystem\obj\Debug\CalculateSystem.pdb
 D:\GitHub\CalculateSystem\CalculateSystem\obj\Debug\CalculateSystem.csprojAssemblyReference.cache
+D:\GitHub\CalculateSystem\bin\Debug\CalculateSystem.exe.config
+D:\GitHub\CalculateSystem\bin\Debug\CalculateSystem.exe
+D:\GitHub\CalculateSystem\bin\Debug\CalculateSystem.pdb
+D:\GitHub\CalculateSystem\obj\Debug\CalculateSystem.Properties.Resources.resources
+D:\GitHub\CalculateSystem\obj\Debug\CalculateSystem.csproj.GenerateResource.cache
+D:\GitHub\CalculateSystem\obj\Debug\CalculateSystem.csproj.CoreCompileInputs.cache
+D:\GitHub\CalculateSystem\obj\Debug\CalculateSystem.exe
+D:\GitHub\CalculateSystem\obj\Debug\CalculateSystem.pdb
+D:\GitHub\CalculateSystem\obj\Debug\CalculateSystem.MainForm.resources
+D:\GitHub\CalculateSystem\obj\Debug\CalculateSystem.csprojAssemblyReference.cache

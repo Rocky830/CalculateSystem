@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace CalcForm
+namespace CalculateSystem
 {
     class VarMumber 
     {
@@ -15,21 +14,21 @@ namespace CalcForm
         public VarMumber()
         {
             inString = "";
-            inNum = 0;
+            //inNum = 0;
             outNum = 0;
-            midNum = 0;
+            //midNum = 0;
             methodSymbo = 0;
         }
 
         private string _inString;
-        private double _inNum;
+        //private double _inNum;
         private double _outNum;
-        private double _midNum;
+        //private double _midNum;
         private int _methodSymbo;
         public string inString { get { return _inString; } set { _inString = value; } }
-        public double inNum { get { return _inNum; } set { _inNum = value; } }
+        //public double inNum { get { return _inNum; } set { _inNum = value; } }
         public double outNum { get { return _outNum; } set { _outNum = value; } }
-        public double midNum { get { return _midNum; } set { _midNum = value; } }
+        //public double midNum { get { return _midNum; } set { _midNum = value; } }
         public int methodSymbo { get { return _methodSymbo; } set { _methodSymbo = value; } }
 
         #region 数字输入
@@ -178,18 +177,6 @@ namespace CalcForm
             }
             return inString;
         }
-
-        /// <summary>
-        /// 写入TextBox控件
-        /// </summary>
-        /// <param name="txb">控件名</param>
-        /// <param name="inString">写入内容</param>
-        public void WriteToTextbox(TextBox txb,string inString)
-        {
-
-        }
-
-
 
 
     }

@@ -4,79 +4,101 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalcForm
+namespace CalculateSystem
 {
     class ComputeMethod
     {
-     
-        /// <summary>
-        /// 清除
-        /// </summary>
-        /// <param name="inNum"></param>
-        /// <param name="outNum"></param>
-        /// <param name="midNum"></param>
-        /// <param name="methodSymbo"></param>
-        public void Clear(ref double inNum, ref double outNum, ref double midNum,ref int methodSymbo)
-        {
-            inNum = 0;
-            outNum = 0;
-            midNum = 0;
-            methodSymbo = 0;
-        }
+        #region +-*/计算方法
 
         /// <summary>
         /// 加法
         /// </summary>
-        /// <param name="inNum"></param>
+        /// <param name="inString"></param>
         /// <param name="outNum"></param>
-        public void AddMethod(double inNum, ref double outNum)
+        public double AddMethod(string inString, double outNum)
         {
-            if (outNum == 0)
-                outNum = inNum;
-            else
-                outNum += inNum;
+            double inNum = Convert.ToDouble(inString);
+            outNum += inNum;
+
+            return outNum;
         }
 
         /// <summary>
         /// 减法
         /// </summary>
-        /// <param name="inNum"></param>
+        /// <param name="inString"></param>
         /// <param name="outNum"></param>
-        public void SubMethod(double inNum, ref double outNum)
+        public double SubMethod(string inString, double outNum)
         {
-            if (outNum == 0)
-                outNum = inNum;
-            else
-                outNum += inNum;
+            double inNum = Convert.ToDouble(inString);
+            outNum -= inNum;
+
+            return outNum;
         }
 
         /// <summary>
         /// 乘法
         /// </summary>
-        /// <param name="inNum"></param>
+        /// <param name="inString"></param>
         /// <param name="outNum"></param>
-        public void MulMethod(double inNum, ref double outNum)
+        public double MulMethod(string inString, double outNum)
         {
-            if (outNum == 0)
-                outNum = inNum;
-            else
-                outNum += inNum;
+            double inNum = Convert.ToDouble(inString);
+            outNum *= inNum;
+
+            return outNum;
         }
 
         /// <summary>
         /// 除法
         /// </summary>
-        /// <param name="inNum"></param>
+        /// <param name="inString"></param>
         /// <param name="outNum"></param>
-        public void DivMethod(double inNum, ref double outNum)
+        public double DivMethod(string inString, double outNum)
         {
-            if (outNum == 0)
-                outNum = inNum;
+            double inNum = Convert.ToDouble(inString);
+            outNum /= inNum;
+
+            if (inNum != 0)
+                return outNum;
             else
-                outNum += inNum;
+                return outNum = 0;
         }
 
-       
+        #endregion
+
+
+        /// <summary>
+        /// 计算方法选择
+        /// </summary>
+        /// <param name="methodSymbo"></param>
+        /// <param name="inString"></param>
+        /// <param name="outNum"></param>
+        /// <returns></returns>
+        public double ComputeMethodSelect(int methodSymbo, string inString, double outNum)
+        {
+            switch (methodSymbo)
+            {
+                case 1:
+                    outNum = AddMethod(inString, outNum);
+                    break;
+                case 2:
+                    outNum = SubMethod(inString, outNum);
+                    break;
+                case 3:
+                    outNum = MulMethod(inString, outNum);
+                    break;
+                case 4:
+                    outNum = DivMethod(inString, outNum);
+                    break;
+
+                default:
+                    break;
+            }
+            return outNum;
+        }
+
+
 
 
     }
