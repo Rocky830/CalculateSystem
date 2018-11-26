@@ -31,56 +31,67 @@ namespace CalculateSystem
         private void butNum0_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_0(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "0");
         }
 
         private void butNum1_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_1(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "1");
         }
 
         private void butNum2_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_2(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "2");
         }
 
         private void butNum3_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_3(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "3");
         }
 
         private void butNum4_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_4(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "4");
         }
 
         private void butNum5_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_5(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "5");
         }
 
         private void butNum6_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_6(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "6");
         }
 
         private void butNum7_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_7(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "7");
         }
 
         private void butNum8_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_8(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "8");
         }
 
         private void butNum9_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_9(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, "9");
         }
 
         private void butNumPoint_Click(object sender, EventArgs e)
         {
             varMumber.inString = varMumber.Char_Point(varMumber.inString);
+            processDisplay.WriteNumberAddToTextbox(txbResultDisplay, ".");
         }
 
         private void butSgn_Click(object sender, EventArgs e)
@@ -142,6 +153,7 @@ namespace CalculateSystem
                         //processDisplay.WriteMethodToTextbox(txbResultDisplay, "+");
                     }
                     varMumber.methodSymbo = 1;
+                    processDisplay.WriteMethodAddToTextbox(txbResultDisplay, "+");
 
                 }
                 varMumber.inString = "";
@@ -246,9 +258,9 @@ namespace CalculateSystem
                 {
                     if (varMumber.inString != "")
                     {
-                        processDisplay.WriteNumberToTextbox(txbResultDisplay, varMumber.inString);
                         varMumber.outNum = computeMethod.ComputeMethodSelect(varMumber.methodSymbo, varMumber.inString, varMumber.outNum);
                         varMumber.methodSymbo = 0;
+                        processDisplay.WriteResultAddToTextbox(txbResultDisplay, varMumber.outNum.ToString ());
                     }
                 }
                 else

@@ -15,9 +15,10 @@ namespace CalculateSystem
         /// </summary>
         /// <param name="txb"></param>
         /// <param name="numberString"></param>
-        public void WriteNumberToTextbox(TextBox txb, string numberString)
+        public void WriteNumberAddToTextbox(TextBox txb, string numberString)
         {
-            txb.Text += numberString;
+            //txb.Text += numberString;
+            txb.AppendText(numberString);
         }
 
         /// <summary>
@@ -25,9 +26,9 @@ namespace CalculateSystem
         /// </summary>
         /// <param name="txb"></param>
         /// <param name="methodString"></param>
-        public void WriteMethodToTextbox(TextBox txb, string methodString)
+        public void WriteMethodAddToTextbox(TextBox txb, string methodString)
         {
-            txb.Text += methodString;
+            txb.AppendText(methodString);
         }
 
         /// <summary>
@@ -35,10 +36,19 @@ namespace CalculateSystem
         /// </summary>
         /// <param name="txb"></param>
         /// <param name="contentString"></param>
-        public void WriteResultToTextbox(TextBox txb, string resultString)
+        public void WriteResultAddToTextbox(TextBox txb, string resultString)
         {
-            txb.Text = txb.Text + "=" + resultString + "\r\n";
+            txb.AppendText( "=" + resultString + "\r\n");
         }
+
+
+        public void WriteDelToTextbox(TextBox txb)
+        {
+            string str = txb.Lines[txb.Lines.Length - 1];
+        }
+
+
+
 
 
     }
