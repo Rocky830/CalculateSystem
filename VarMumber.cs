@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalculateSystem
 {
-    class VarMumber 
+    class VarMumber
     {
         /// <summary>
         /// 变量初始化
@@ -14,22 +14,22 @@ namespace CalculateSystem
         public VarMumber()
         {
             inString = "";
-            //inNum = 0;
             outNum = 0;
-            //midNum = 0;
             methodSymbo = 0;
+            //inNum = 0;
+            //midNum = 0;
         }
 
         private string _inString;
-        //private double _inNum;
         private double _outNum;
-        //private double _midNum;
         private int _methodSymbo;
         public string inString { get { return _inString; } set { _inString = value; } }
-        //public double inNum { get { return _inNum; } set { _inNum = value; } }
         public double outNum { get { return _outNum; } set { _outNum = value; } }
-        //public double midNum { get { return _midNum; } set { _midNum = value; } }
         public int methodSymbo { get { return _methodSymbo; } set { _methodSymbo = value; } }
+        //private double _inNum;
+        //private double _midNum;
+        //public double inNum { get { return _inNum; } set { _inNum = value; } }
+        //public double midNum { get { return _midNum; } set { _midNum = value; } }
 
         #region 数字输入
 
@@ -129,13 +129,22 @@ namespace CalculateSystem
         /// <param name="inString"></param>
         public string Char_Point(string inString)
         {
-            if (inString.Length > 0)
+            string str = inString.Substring(0, 1);      //截取第一个字符
+            if (str != "-")
             {
-                if (inString.IndexOf('.') == -1)
+                if (inString.Length == 0)       //输入为空时
                     inString = "0.";
+                else
+                    inString += ".";            //如：'8'+
             }
             else
-                inString += '0';
+            {
+                if (inString.Length == 1)       //如：'-'+
+                    inString = "-0.";
+                else
+                    inString += ".";            //如：'-8'+
+            }
+
             return inString;
         }
 
@@ -145,38 +154,49 @@ namespace CalculateSystem
         /// <param name="inString"></param>
         public string StringSgn(string inString)
         {
-            if (inString != "0" && inString.Length > 0)
+            if (inString != "")
             {
-                string str = inString.Substring(0, 1);
+                string str = inString.Substring(0, 1);      //截取第一个字符
                 if (str == "-")
                     inString = inString.Substring(1, inString.Length - 1);  //去掉负号              
                 else
                     inString = inString.Insert(0, "-"); //添加负号
             }
+
             return inString;
         }
-        
+
         #endregion
-        
+
         /// <summary>
         /// 数字字符串向左删除一个字符
         /// </summary>
         /// <param name="inString"></param>
         public string StringUndoStep(string inString)
         {
-            string str = inString.Substring(0, 1);
-            if (str == "-")
-            {
-                if (inString.Length > 1)
-                    inString = inString.Substring(0, inString.Length - 1);
-            }
+            if (inString.Length > 1)
+                inString = inString.Substring(0, inString.Length - 1);
             else
-            {
-                if (inString.Length > 0)
-                    inString = inString.Substring(0, inString.Length - 1);
-            }
+                inString = "";
+
             return inString;
         }
+
+        ///// <summary>
+        ///// 字符串转数字有效性测试
+        ///// </summary>
+        ///// <param name="inString"></param>
+        ///// <returns></returns>
+        //public string StringToNumberTry(string inString)
+        //{
+        //    bool result = double.TryParse(inString, out double dd);
+        //    if (result == false)
+        //        inString = inString.Substring(0, inString.Length - 1);
+
+        //    return inString;
+        //}
+
+
 
 
     }

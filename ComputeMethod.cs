@@ -59,10 +59,7 @@ namespace CalculateSystem
             double inNum = Convert.ToDouble(inString);
             outNum /= inNum;
 
-            if (inNum != 0)
-                return outNum;
-            else
-                return outNum = 0;
+            return outNum;
         }
 
         #endregion

@@ -38,13 +38,13 @@ namespace CalculateSystem
         /// <param name="contentString"></param>
         public void WriteResultAddToTextbox(TextBox txb, string resultString)
         {
-            txb.AppendText( "=" + resultString + "\r\n");
+            txb.AppendText( "=" + resultString + "\r\n"+"****************"+ "\r\n");
         }
 
 
         public void WriteDelToTextbox(TextBox txb)
         {
-            string str = txb.Lines[txb.Lines.Length - 1];
+            txb.Text  = txb.Lines[txb.Lines.Length - 1];
         }
 
 
