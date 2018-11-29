@@ -15,21 +15,17 @@ namespace CalculateSystem
         {
             inString = "";
             outNum = 0;
-            methodSymbo = 0;
-            //inNum = 0;
-            //midNum = 0;
+            methodSymbo = 0;            
         }
 
         private string _inString;
         private double _outNum;
         private int _methodSymbo;
+        
         public string inString { get { return _inString; } set { _inString = value; } }
         public double outNum { get { return _outNum; } set { _outNum = value; } }
         public int methodSymbo { get { return _methodSymbo; } set { _methodSymbo = value; } }
-        //private double _inNum;
-        //private double _midNum;
-        //public double inNum { get { return _inNum; } set { _inNum = value; } }
-        //public double midNum { get { return _midNum; } set { _midNum = value; } }
+        
 
         #region 数字输入
 

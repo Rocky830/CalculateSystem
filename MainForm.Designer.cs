@@ -60,9 +60,9 @@
             this.butNum0 = new System.Windows.Forms.Button();
             this.butNumPoint = new System.Windows.Forms.Button();
             this.butSgn = new System.Windows.Forms.Button();
-            this.txbResultDisplay = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.rtxDisplay = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -356,16 +356,6 @@
             this.butSgn.UseVisualStyleBackColor = true;
             this.butSgn.Click += new System.EventHandler(this.butSgn_Click);
             // 
-            // txbResultDisplay
-            // 
-            this.txbResultDisplay.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbResultDisplay.Location = new System.Drawing.Point(12, 28);
-            this.txbResultDisplay.Multiline = true;
-            this.txbResultDisplay.Name = "txbResultDisplay";
-            this.txbResultDisplay.Size = new System.Drawing.Size(210, 66);
-            this.txbResultDisplay.TabIndex = 29;
-            this.txbResultDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(120, 307);
@@ -383,14 +373,25 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // rtxDisplay
+            // 
+            this.rtxDisplay.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rtxDisplay.Location = new System.Drawing.Point(12, 28);
+            this.rtxDisplay.Name = "rtxDisplay";
+            this.rtxDisplay.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.rtxDisplay.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.rtxDisplay.Size = new System.Drawing.Size(210, 75);
+            this.rtxDisplay.TabIndex = 33;
+            this.rtxDisplay.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(235, 340);
+            this.Controls.Add(this.rtxDisplay);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txbResultDisplay);
             this.Controls.Add(this.butSgn);
             this.Controls.Add(this.butSymboAdd);
             this.Controls.Add(this.butResult);
@@ -459,9 +460,9 @@
         private System.Windows.Forms.Button butNum0;
         private System.Windows.Forms.Button butNumPoint;
         private System.Windows.Forms.Button butSgn;
-        private System.Windows.Forms.TextBox txbResultDisplay;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox rtxDisplay;
     }
 }
 

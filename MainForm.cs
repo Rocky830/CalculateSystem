@@ -31,61 +31,61 @@ namespace CalculateSystem
         private void butNum0_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_0(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "0");
+            number.inString = number.Char_0("0");
         }
 
         private void butNum1_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_1(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "1");
+            number.inString = number.Char_0("1");
         }
 
         private void butNum2_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_2(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "2");
+            number.inString = number.Char_0("2");
         }
 
         private void butNum3_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_3(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "3");
+            number.inString = number.Char_0("3");
         }
 
         private void butNum4_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_4(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "4");
+            number.inString = number.Char_0("4");
         }
 
         private void butNum5_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_5(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "5");
+            number.inString = number.Char_0("5");
         }
 
         private void butNum6_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_6(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "6");
+            number.inString = number.Char_0("6");
         }
 
         private void butNum7_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_7(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "7");
+            number.inString = number.Char_0("7");
         }
 
         private void butNum8_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_8(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "8");
+            number.inString = number.Char_0("8");
         }
 
         private void butNum9_Click(object sender, EventArgs e)
         {
             number.inString = number.Char_9(number.inString);
-            display.WriteNumberAddToTextbox(txbResultDisplay, "9");
+            number.inString = number.Char_0("9");
         }
 
         private void butNumPoint_Click(object sender, EventArgs e)
@@ -93,14 +93,14 @@ namespace CalculateSystem
             if (number.inString.IndexOf('.') == -1)
             {
                 number.inString = number.Char_Point(number.inString);
-                display.WriteNumberAddToTextbox(txbResultDisplay, ".");
+                number.inString = number.Char_0(".");
             }
         }
 
         //实现方法有待探讨
         private void butSgn_Click(object sender, EventArgs e)
         {
-            number.inString = number.StringSgn(number.inString);            
+            number.inString = number.StringSgn(number.inString);
         }
 
         #endregion
@@ -110,7 +110,6 @@ namespace CalculateSystem
         private void butUndo_Click(object sender, EventArgs e)
         {
             number.inString = number.StringUndoStep(number.inString);
-            display.WriteDelToTextbox(txbResultDisplay);
         }
 
         private void butClearError_Click(object sender, EventArgs e)
@@ -125,13 +124,11 @@ namespace CalculateSystem
 
         private void Clear()
         {
-            //number.inNum = 0;
-            //number.midNum = 0;
             number.outNum = 0;
             number.inString = "";
             number.methodSymbo = 0;
-            txbResultDisplay.Text += "\r\n"+"****************" + "\r\n";
-            //txbResultDisplay.Text += Environment.NewLine;
+            method.listNum = null;
+            rtxDisplay.Text += "---------------------------\n";
         }
 
 
@@ -139,112 +136,84 @@ namespace CalculateSystem
 
         private void butSymboAdd_Click(object sender, EventArgs e)
         {
-            try
+            if (number.methodSymbo != 0)     //已输入运算符号
             {
-                if (number.methodSymbo != 0)     //已输入运算符号
+                if (number.inString != "")
                 {
-                    if (number.inString != "")
-                    {
-                        number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
-                        number.methodSymbo = 0;
-                    }
+                    number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
+                    number.methodSymbo = 0;
                 }
-                else
-                {
-                    if (number.inString != "")
-                    {
-                        number.outNum = Convert.ToDouble(number.inString);
-                    }
-                    number.methodSymbo = 1;
-                }
-                number.inString = "";
             }
-            catch (Exception)
+            else
             {
-                throw;
+                if (number.inString != "")
+                {
+                    number.outNum = Convert.ToDouble(number.inString);
+                }
+                number.methodSymbo = 1;
             }
+            number.inString = "";
         }
 
         private void butSymboSub_Click(object sender, EventArgs e)
         {
-            try
+            if (number.methodSymbo != 0)
             {
-                if (number.methodSymbo != 0)
+                if (number.inString != "")
                 {
-                    if (number.inString != "")
-                    {
-                        number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
-                        number.methodSymbo = 0;
-                    }
+                    number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
+                    number.methodSymbo = 0;
                 }
-                else
-                {
-                    if (number.inString != "")
-                        number.outNum = Convert.ToDouble(number.inString);
-                    number.methodSymbo = 2;
-                }
-                number.inString = "";
             }
-            catch (Exception)
+            else
             {
-                throw;
+                if (number.inString != "")
+                    number.outNum = Convert.ToDouble(number.inString);
+                number.methodSymbo = 2;
             }
-            txbResultDisplay.Text = number.outNum.ToString();
+            number.inString = "";
         }
+
 
         private void butSymboMul_Click(object sender, EventArgs e)
         {
-            try
+            if (number.methodSymbo != 0)
             {
-                if (number.methodSymbo != 0)
+                if (number.inString != "")
                 {
-                    if (number.inString != "")
-                    {
-                        number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
-                        number.methodSymbo = 0;
-                    }
+                    number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
+                    number.methodSymbo = 0;
                 }
-                else
-                {
-                    if (number.inString != "")
-                        number.outNum = Convert.ToDouble(number.inString);
-                    number.methodSymbo = 3;
-                }
-                number.inString = "";
             }
-            catch (Exception)
+            else
             {
-                throw;
+                if (number.inString != "")
+                    number.outNum = Convert.ToDouble(number.inString);
+                number.methodSymbo = 3;
             }
-            txbResultDisplay.Text = number.outNum.ToString();
+            number.inString = "";
+
         }
 
         private void butSymboDiv_Click(object sender, EventArgs e)
         {
-            try
+            if (number.methodSymbo != 0)
             {
-                if (number.methodSymbo != 0)
+                if (number.inString != "")
                 {
-                    if (number.inString != "")
-                    {
-                        number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
-                        number.methodSymbo = 0;
-                    }
+                    number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
+                    number.methodSymbo = 0;
                 }
-                else
-                {
-                    if (number.inString != "")
-                        number.outNum = Convert.ToDouble(number.inString);
-                    number.methodSymbo = 4;
-                }
-                number.inString = "";
             }
-            catch (Exception)
+            else
             {
-                throw;
+                if (number.inString != "")
+                    number.outNum = Convert.ToDouble(number.inString);
+                number.methodSymbo = 4;
             }
-            txbResultDisplay.Text = number.outNum.ToString();
+            number.inString = "";
         }
+
 
         #endregion
 
@@ -252,39 +221,40 @@ namespace CalculateSystem
         //计算并结果显示
         private void butResult_Click(object sender, EventArgs e)
         {
-            try
+            if (number.methodSymbo != 0)
             {
-                if (number.methodSymbo != 0)
+                if (number.inString != "")
                 {
-                    if (number.inString != "")
-                    {
-                        number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
-                        number.methodSymbo = 0;
-                        display.WriteResultAddToTextbox(txbResultDisplay, number.outNum.ToString());
-                    }
+                    number.outNum = method.ComputeMethodSelect(number.methodSymbo, number.inString, number.outNum);
+                    number.methodSymbo = 0;
                 }
-                else
-                {
-                    if (number.inString != "")
-                        number.outNum = Convert.ToDouble(number.inString);
-                    //number.methodSymbo = 1;
-                }
-                number.inString = "";
             }
-            catch (Exception)
+            else
             {
-                throw;
+                if (number.inString != "")
+                    number.outNum = Convert.ToDouble(number.inString);
+                //number.methodSymbo = 1;
             }
-
+            number.inString = "";
             //display.WriteResultToTextbox(txbResultDisplay, number.outNum.ToString());
             Clear();
-
         }
+
+
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-            
+            for (int i = 0; i < 10; i++)
+            {
+                display.WriteResultAddToRichTextBox(rtxDisplay, i.ToString());
+            }
+
+
+
+
         }
     }
+
 }

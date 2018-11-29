@@ -8,6 +8,45 @@ namespace CalculateSystem
 {
     class ComputeMethod
     {
+
+        public ComputeMethod()
+        {
+            listNum = null;
+        }
+
+        private List<string> _listNum;
+        public List<string> listNum { get { return _listNum; } set { _listNum = value; } }
+
+
+
+        #region 输入缓冲
+
+        //public List<string> AddNumber(List<string> listNum, string str)
+        //{
+        //    listNum.Add(str);
+        //    return listNum;
+        //}
+
+        //public List<string> DelNumber(List<string> listNum)
+        //{
+        //    if (listNum.Count > 0)
+        //        listNum.Remove(listNum.Last());
+        //    else
+        //        listNum.Clear();
+
+        //    return listNum;
+        //}
+
+        //public List<string> ClearNumber(List<string> listNum)
+        //{
+        //    listNum.Clear();
+
+        //    return listNum;
+        //}
+
+        #endregion
+        
+
         #region +-*/计算方法
 
         /// <summary>

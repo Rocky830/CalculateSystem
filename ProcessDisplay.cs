@@ -13,39 +13,38 @@ namespace CalculateSystem
         /// <summary>
         /// 写入数字进控件显示
         /// </summary>
-        /// <param name="txb"></param>
+        /// <param name="rtx"></param>
         /// <param name="numberString"></param>
-        public void WriteNumberAddToTextbox(TextBox txb, string numberString)
+        public void WriteNumberAddToRichTextBox(RichTextBox rtx, string numberString)
         {
-            //txb.Text += numberString;
-            txb.AppendText(numberString);
+            rtx.Text += numberString;
         }
 
         /// <summary>
         /// 写入运算符号进控件显示
         /// </summary>
-        /// <param name="txb"></param>
+        /// <param name="rtx"></param>
         /// <param name="methodString"></param>
-        public void WriteMethodAddToTextbox(TextBox txb, string methodString)
+        public void WriteMethodAddToRichTextBox(RichTextBox rtx, string methodString)
         {
-            txb.AppendText(methodString);
+            rtx.Text += methodString;
         }
 
         /// <summary>
         /// 写入结果进控件显示
         /// </summary>
-        /// <param name="txb"></param>
+        /// <param name="rtx"></param>
         /// <param name="contentString"></param>
-        public void WriteResultAddToTextbox(TextBox txb, string resultString)
+        public void WriteResultAddToRichTextBox(RichTextBox rtx, string resultString)
         {
-            txb.AppendText( "=" + resultString + "\r\n"+"****************"+ "\r\n");
+            rtx.Text += " = " + resultString + "\n" + "---------------------------\n";
         }
 
 
-        public void WriteDelToTextbox(TextBox txb)
-        {
-            txb.Text  = txb.Lines[txb.Lines.Length - 1];
-        }
+        //public void WriteDelToTextbox(ListBox txb)
+        //{
+
+        //}
 
 
 
